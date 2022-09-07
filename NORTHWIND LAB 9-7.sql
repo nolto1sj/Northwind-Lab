@@ -69,8 +69,28 @@ FROM [Order Details]
 SELECT MAX(Quantity)
 FROM [Order Details]
 
-SELECT *
+SELECT * --3
 FROM Customers
 WHERE City IN ('London','Paris')
 
+SELECT * --4
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID
 
+SELECT * 
+FROM Orders
+LEFT JOIN Customers ON Orders.CustomerID=Customers.CustomerID
+
+SELECT * 
+FROM Orders
+RIGHT JOIN Customers ON Orders.CustomerID=Customers.CustomerID
+
+SELECT DISTINCT City --5
+FROM Customers
+
+SELECT Employees.FirstName --6
+FROM Employees
+GROUP BY FirstName
+
+SELECT *, UnitPrice*Quantity AS TotalPrice --7
+FROM [Order Details]
